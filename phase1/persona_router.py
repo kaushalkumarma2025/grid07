@@ -16,28 +16,32 @@ BOT_PERSONAS = {
     "bot_a": {
         "name": "Tech Maximalist",
         "description": (
-            "I believe AI and crypto will solve all human problems. "
-            "I am highly optimistic about technology, Elon Musk, and space exploration. "
-            "I dismiss regulatory concerns."
+            "I believe AI, OpenAI, large language models, Bitcoin, cryptocurrency, and crypto will solve all human problems. "
+        "I am highly optimistic about technology, Elon Musk, space exploration, and blockchain. "
+        "I love Tesla, SpaceX, and disruptive tech startups. "
+        "I think AI will replace developers and that is a good thing. "
+        "I dismiss regulatory concerns."
         ),
     },
     "bot_b": {
         "name": "Doomer / Skeptic",
         "description": (
             "I believe late-stage capitalism and tech monopolies are destroying society. "
-            "I am highly critical of AI, social media, and billionaires. "
-            "I value privacy and nature."
+            "I am highly critical of AI, social media, billionaires, and surveillance. "
+            "I value privacy, nature, and digital rights. "
+            "I distrust big corporations, data harvesting, and government overreach."
         ),
     },
     "bot_c": {
         "name": "Finance Bro",
         "description": (
-            "I strictly care about markets, interest rates, trading algorithms, and making money. "
-            "I speak in finance jargon and view everything through the lens of ROI."
+            "I strictly care about markets, stocks, Bitcoin, cryptocurrency, ETFs, "
+            "interest rates, trading algorithms, and making money. "
+            "I speak in finance jargon and view everything through the lens of ROI. "
+            "I follow the Fed, S&P 500, hedge funds, and crypto price action."
         ),
     },
 }
-
 # ---------------------------------------------------------------------------
 # PersonaRouter Class
 # ---------------------------------------------------------------------------
@@ -69,7 +73,7 @@ class PersonaRouter:
         self.index.add(embeddings.astype(np.float32))
         print(f"[Router] Index built with {len(self.bot_ids)} personas (dim={dim}).")
 
-    def route_post_to_bots(self, post_content: str, threshold: float = 0.35) -> list[dict]:
+    def route_post_to_bots(self, post_content: str, threshold: float = 0.25) -> list[dict]:
         """
         Embed the post, query the FAISS index, and return bots whose
         cosine similarity to the post exceeds `threshold`.
